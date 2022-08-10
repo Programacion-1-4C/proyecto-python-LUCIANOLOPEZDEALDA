@@ -1,31 +1,111 @@
-def crear_equipo(lista_equipos = []):
-    equipo = input('Que nombre le pones a tu equipo: ')
-    lista_equipos.append(equipo)
-    print(lista_equipos)
+import random
 
+def crear_equipo():
+    nombre_equipo = input('Nombra a tu equipo: ')
 
-def fichar_jugador(jugador_fichado = []):
-    jugadores = ["Messi", "CR7", "Neymar", "Pogba", "Dybala", "Halland", "Mbappe", "Pele", "Maradona", "Foden", "Kun"]
-    print("Que jugador quieres fichar?")
-    print(jugadores)
-    nombre_jugador = input("Ingresa el nombre del jugador a fichar: ")
-    indice = jugadores.index(nombre_jugador)
-    jugadores.pop(indice)
-    print(jugadores)
-    jugador_fichado.append(nombre_jugador)
-    print(jugador_fichado)
+def comprar_vender_jugador():
+    nombre_dt = input('Escribe tu nombre de director tecnico: ')
+    print('Hola {} , tienes $120 millones de dolares para crear tu equipo .' \
+          "podes comprar 11 jugadores ".format(nombre_dt))
 
+    cartera = 120
+    jugadores = {'hart': 20, 'curtois': 18, 'navas': 20, 'bravo': 15, 'cech': 15, 'de gea': 20, 'ramos': 40,
+                 'pique': 30, 'ronaldo': 50,
+                 'messi': 50, 'suarez': 45, 'neymar': 48, 'bale': 45, 'hazard': 42, 'aguero': 40, 'smith': 2,
+                 'johhny': 4, 'sunny': 8, 'patrick': 5,
+                 'debian': 3, 'shaggy': 4.5, 'randy': 3, 'karim': 6, 'samuel': 2, 'billy': 4, "aaron": 5}
+    equipo = []
 
+    for key, precio in jugadores.items():
+        print("Nombre: {} precio: {} Millones de dolares".format(key, precio))
+
+    while len(equipo) < 11:
+        comprar_jugador = input('Nombre del jugador a comprar: ')
+        if comprar_jugador in equipo:
+            print(comprar_jugador + " ya esta en tu equipo")
+            continue
+        if comprar_jugador not in jugadores:
+            print('Este jugador no se puede comprar, chequea la lista de nuevo')
+            continue
+        print("Jugador: {} Precio: {} Millones de dolares; {}'s Cartera: {} Millon de dolares".format(comprar_jugador,
+                                                                                                    jugadores[
+                                                                                                        comprar_jugador],
+                                                                                                    nombre_dt, cartera))
+        respuesta_final = input('Estas seguro de hacer esta compra? (si o no) , no puedes volver atras; ')
+        if respuesta_final.lower() != "si":
+            continue
+        if cartera - jugadores[comprar_jugador] <= 0:
+            print("insuficiente saldo")
+            respuesta_vender = input('Necesitas vender un jugador , escribe el nombre del jugador a vender')
+            if respuesta_vender not in equipo:
+                continue
+            print("{} ,  Precio: {} Millones de dolares.Sold ".format(respuesta_vender, jugadores[comprar_jugador]))
+            equipo.remove(respuesta_vender)
+            cartera += jugadores[respuesta_vender]
+            print("{} este es tu nuevo dinero".format(cartera))
+            print("Tienes {} jugadores en tu equipo".format(str(len(equipo))))
+            continue
+        cartera -= jugadores[comprar_jugador]
+        equipo.append(comprar_jugador)
+        print("Tienes {} jugadores en tu equipo".format(str(len(equipo))))
+
+    print("\n".join(equipo))
+    print('Este es tu nuevo equipo!')
+
+def formacion_equipo():
+    formaciones = {'4-4-2': 0, '4-3-1-2': 1, '4-3-3': 2, '4-2-3-1': 3, '3-5-2': 4, '3-4-3': 5, '5-4-1': 6,
+                 '5-3-2': 7}
+    equipo = []
+
+    for key, numero in formaciones.items():
+        print("Nombre de la formacion: {}, numero: {}".format(key, numero))
+
+    while len(equipo) < 1:
+        formacion = input('Nombre de la formacion: ')
+        if formacion in equipo:
+            print(formacion + " ya la tiene el equipo")
+            continue
+        if formacion not in formaciones:
+            print('Esta formacion no existe, chequea la lista de nuevo')
+            continue
+        respuesta_final = input('Estas seguro de elegir esta formacion? (si o no): ')
+        if respuesta_final.lower() != "si":
+            continue
+        equipo.append(formacion)
+
+def jugar_partido():
+    elige = ["Ganaste", "Perdiste"]
+    aleatorio = random.choice(elige)
+    print(aleatorio)
+
+def ver_estadisticas():
+    Fuerza = "Fuerza",0
+    Aceleracion = "Aceleracion",0
+    Resistencia = "Resistencia",0
+    Equilibrio = "Equilibrio",0
+    Velocidad = "Velocidad",0
+    Salto = "Salto",0
+    print("Tus estadisticas son: ")
+    print(Fuerza,Aceleracion,Resistencia,Equilibrio,Velocidad,Salto)
+
+def entrenar():
+    Fuerza = "Fuerza",(random.randint(0, 99))
+    Aceleracion = "Aceleracion",(random.randint(0, 99))
+    Resistencia = "Resistencia",(random.randint(0, 99))
+    Equilibrio = "Equilibrio",(random.randint(0, 99))
+    Velocidad = "Velocidad",(random.randint(0, 99))
+    Salto = "Salto",(random.randint(0, 99))
+    print("Tus estadisticas son: ")
+    print(Fuerza,Aceleracion,Resistencia,Equilibrio,Velocidad,Salto)
 
 def director_tecnico():
     while True:
         print(
             '1. Crear equipo\n'
-            '2. Fichar jugador\n'
-            '3. Vender jugador\n'
-            '4. Formacion del equipo\n'
-            '5. Jugar partido\n'
-            '6. Salir'
+            '2. Comprar/vender jugador\n'
+            '3. Formacion del equipo\n'
+            '4. Jugar partido\n'
+            '5. Salir'
         )
         eleccion = int(input('>>> '))
 
@@ -33,11 +113,16 @@ def director_tecnico():
             crear_equipo()
 
         elif eleccion == 2:
-            fichar_jugador()
+            comprar_vender_jugador()
 
         elif eleccion == 3:
-            pass
+            formacion_equipo()
 
+        elif eleccion == 4:
+            jugar_partido()
+
+        elif eleccion == 5:
+            break
 
 def jugador():
     while True:
@@ -48,3 +133,15 @@ def jugador():
             '4. Salir'
         )
         eleccion = int(input('>>> '))
+
+        if eleccion == 1:
+            ver_estadisticas()
+
+        elif eleccion == 2:
+            entrenar()
+
+        elif eleccion == 3:
+            pass
+
+        elif eleccion == 4:
+            break

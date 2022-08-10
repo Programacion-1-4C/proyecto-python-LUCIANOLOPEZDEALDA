@@ -1,5 +1,5 @@
-from Funciones import director_tecnico
-from Funciones import jugador
+from funciones import director_tecnico
+from funciones import jugador
 
 lista_equipos = []
 jugador_fichado = []
