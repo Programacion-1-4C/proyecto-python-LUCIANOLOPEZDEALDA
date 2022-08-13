@@ -1,6 +1,11 @@
-from funciones import director_tecnico
-from funciones import jugador
-
+from funciones import crear_equipo
+from funciones import comprar_vender_jugador
+from funciones import formacion_equipo
+from funciones import jugar_partido
+from funciones import ver_estadisticas
+from funciones import entrenar
+from funciones import fichar_por_equipo
+from funciones import equipo_aleatorio
 lista_equipos = []
 jugador_fichado = []
 
@@ -14,7 +19,50 @@ while True:
     eleccion = int(input('>>> '))
 
     if eleccion == 1:
-        director_tecnico()
+        while True:
+            print(
+                '1. Crear equipo\n'
+                '2. Comprar/vender jugador\n'
+                '3. Formacion del equipo\n'
+                '4. Jugar partido\n'
+                '5. Salir'
+            )
+            eleccion = int(input('>>> '))
+
+            if eleccion == 1:
+                crear_equipo()
+
+            elif eleccion == 2:
+                comprar_vender_jugador()
+
+            elif eleccion == 3:
+                formacion_equipo()
+
+            elif eleccion == 4:
+                jugar_partido()
+
+            elif eleccion == 5:
+                break
 
     elif eleccion == 2:
-        jugador()
+        equipo_aleatorio()
+        while True:
+            print(
+                '1. Ver estadisticas\n'
+                '2. Entrenar\n'
+                '3. Fichar por otro equipo\n'
+                '4. Salir'
+            )
+            eleccion = int(input('>>> '))
+
+            if eleccion == 1:
+                ver_estadisticas()
+
+            elif eleccion == 2:
+                entrenar()
+
+            elif eleccion == 3:
+                fichar_por_equipo()
+
+            elif eleccion == 4:
+                break

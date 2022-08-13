@@ -2,6 +2,7 @@ import random
 
 def crear_equipo():
     nombre_equipo = input('Nombra a tu equipo: ')
+    print('El nombre de tu equipo es:',nombre_equipo)
 
 def comprar_vender_jugador():
     nombre_dt = input('Escribe tu nombre de director tecnico: ')
@@ -98,50 +99,22 @@ def entrenar():
     print("Tus estadisticas son: ")
     print(Fuerza,Aceleracion,Resistencia,Equilibrio,Velocidad,Salto)
 
-def director_tecnico():
-    while True:
-        print(
-            '1. Crear equipo\n'
-            '2. Comprar/vender jugador\n'
-            '3. Formacion del equipo\n'
-            '4. Jugar partido\n'
-            '5. Salir'
-        )
-        eleccion = int(input('>>> '))
+def fichar_por_equipo():
+    equipos = {"Boca":0,"Riber":1,"Chacarita":2,"Talleres":3,"Belgrano":4}
+    for key, numeros in equipos.items():
+        print("Nombre: {} numero: {} ".format(key, numeros))
+    equipo = []
+    while len(equipo) < 1:
+        equipo_f = input('Nombre del equipo a cambiar: ')
+        if equipo_f not in equipos:
+            print('Este equipo no existe, chequea la lista de nuevo')
+            continue
+        respuesta_final = input('Estas seguro de elegir este equipo? (si o no): ')
+        if respuesta_final.lower() != "si":
+            continue
+        equipo.append(equipo)
 
-        if eleccion == 1:
-            crear_equipo()
-
-        elif eleccion == 2:
-            comprar_vender_jugador()
-
-        elif eleccion == 3:
-            formacion_equipo()
-
-        elif eleccion == 4:
-            jugar_partido()
-
-        elif eleccion == 5:
-            break
-
-def jugador():
-    while True:
-        print(
-            '1. Ver estadisticas\n'
-            '2. Entrenar\n'
-            '3. Fichar por otro equipo\n'
-            '4. Salir'
-        )
-        eleccion = int(input('>>> '))
-
-        if eleccion == 1:
-            ver_estadisticas()
-
-        elif eleccion == 2:
-            entrenar()
-
-        elif eleccion == 3:
-            pass
-
-        elif eleccion == 4:
-            break
+def equipo_aleatorio():
+    equipos = ["Boca", "Riber", "Chacarita", "Talleres", "Belgrano", ]
+    equipo = random.choice(equipos)
+    print("Tu equipo es", equipo)
