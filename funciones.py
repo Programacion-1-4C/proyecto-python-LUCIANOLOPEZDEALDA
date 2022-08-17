@@ -5,7 +5,6 @@ def crear_equipo():
     nombre_equipo = input('Nombra a tu equipo: ')
     print('El nombre de tu equipo es:', nombre_equipo)
 
-
 def comprar_vender_jugador():
     nombre_dt = input('Escribe tu nombre de director tecnico: ')
     print('Hola {} , tienes $120 millones de dolares para crear tu equipo .' \
@@ -77,12 +76,16 @@ def formacion_equipo():
         if respuesta_final.lower() != "si":
             continue
         equipo.append(formacion)
-
+        print("Tu formacion es",formacion)
 
 def jugar_partido():
     elige = ["Ganaste", "Perdiste"]
     aleatorio = random.choice(elige)
     print(aleatorio)
+    if aleatorio == "Ganaste":
+        print("+3pts")
+    elif aleatorio == "Perdiste":
+        print("-3pts")
 
 
 def ver_estadisticas(estadisticas, estadistica="All"):
