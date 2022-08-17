@@ -5,6 +5,7 @@ def crear_equipo():
     nombre_equipo = input('Nombra a tu equipo: ')
     print('El nombre de tu equipo es:', nombre_equipo)
 
+
 def comprar_vender_jugador():
     nombre_dt = input('Escribe tu nombre de director tecnico: ')
     print('Hola {} , tienes $120 millones de dolares para crear tu equipo .' \
@@ -76,7 +77,8 @@ def formacion_equipo():
         if respuesta_final.lower() != "si":
             continue
         equipo.append(formacion)
-        print("Tu formacion es",formacion)
+        print("Tu formacion es", formacion)
+
 
 def jugar_partido():
     elige = ["Ganaste", "Perdiste"]
