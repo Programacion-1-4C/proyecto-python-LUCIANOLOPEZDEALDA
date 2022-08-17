@@ -1,8 +1,10 @@
 import random
 
+
 def crear_equipo():
     nombre_equipo = input('Nombra a tu equipo: ')
-    print('El nombre de tu equipo es:',nombre_equipo)
+    print('El nombre de tu equipo es:', nombre_equipo)
+
 
 def comprar_vender_jugador():
     nombre_dt = input('Escribe tu nombre de director tecnico: ')
@@ -29,9 +31,10 @@ def comprar_vender_jugador():
             print('Este jugador no se puede comprar, chequea la lista de nuevo')
             continue
         print("Jugador: {} Precio: {} Millones de dolares; {}'s Cartera: {} Millon de dolares".format(comprar_jugador,
-                                                                                                    jugadores[
-                                                                                                        comprar_jugador],
-                                                                                                    nombre_dt, cartera))
+                                                                                                      jugadores[
+                                                                                                          comprar_jugador],
+                                                                                                      nombre_dt,
+                                                                                                      cartera))
         respuesta_final = input('Estas seguro de hacer esta compra? (si o no) , no puedes volver atras; ')
         if respuesta_final.lower() != "si":
             continue
@@ -53,9 +56,10 @@ def comprar_vender_jugador():
     print("\n".join(equipo))
     print('Este es tu nuevo equipo!')
 
+
 def formacion_equipo():
     formaciones = {'4-4-2': 0, '4-3-1-2': 1, '4-3-3': 2, '4-2-3-1': 3, '3-5-2': 4, '3-4-3': 5, '5-4-1': 6,
-                 '5-3-2': 7}
+                   '5-3-2': 7}
     equipo = []
 
     for key, numero in formaciones.items():
@@ -74,33 +78,33 @@ def formacion_equipo():
             continue
         equipo.append(formacion)
 
+
 def jugar_partido():
     elige = ["Ganaste", "Perdiste"]
     aleatorio = random.choice(elige)
     print(aleatorio)
 
-def ver_estadisticas():
-    Fuerza = "Fuerza",0
-    Aceleracion = "Aceleracion",0
-    Resistencia = "Resistencia",0
-    Equilibrio = "Equilibrio",0
-    Velocidad = "Velocidad",0
-    Salto = "Salto",0
-    print("Tus estadisticas son: ")
-    print(Fuerza,Aceleracion,Resistencia,Equilibrio,Velocidad,Salto)
 
-def entrenar():
-    Fuerza = "Fuerza",(random.randint(0, 99))
-    Aceleracion = "Aceleracion",(random.randint(0, 99))
-    Resistencia = "Resistencia",(random.randint(0, 99))
-    Equilibrio = "Equilibrio",(random.randint(0, 99))
-    Velocidad = "Velocidad",(random.randint(0, 99))
-    Salto = "Salto",(random.randint(0, 99))
+def ver_estadisticas(estadisticas, estadistica="All"):
     print("Tus estadisticas son: ")
-    print(Fuerza,Aceleracion,Resistencia,Equilibrio,Velocidad,Salto)
+    if estadistica == "All":
+        for est, val in estadisticas.items():
+            print(est, ": ", val)
+    else:
+        print(estadistica, ": ", estadisticas[estadistica])
+
+
+def entrenar(estadisticas, estadistica="All"):
+    if estadistica == "All":
+        for est in estadisticas.keys():
+            estadisticas[est] = random.randint(0, 99)
+    else:
+        estadisticas[estadistica] = random.randint(0, 99)
+    ver_estadisticas(estadisticas)
+
 
 def fichar_por_equipo():
-    equipos = {"Boca":0,"Riber":1,"Chacarita":2,"Talleres":3,"Belgrano":4}
+    equipos = {"Boca": 0, "Riber": 1, "Chacarita": 2, "Talleres": 3, "Belgrano": 4}
     for key, numeros in equipos.items():
         print("Nombre: {} numero: {} ".format(key, numeros))
     equipo = []
@@ -113,6 +117,8 @@ def fichar_por_equipo():
         if respuesta_final.lower() != "si":
             continue
         equipo.append(equipo)
+        print("Tu equipo nuevo es", equipo_f)
+
 
 def equipo_aleatorio():
     equipos = ["Boca", "Riber", "Chacarita", "Talleres", "Belgrano", ]

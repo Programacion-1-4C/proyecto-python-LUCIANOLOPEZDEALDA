@@ -8,6 +8,14 @@ from funciones import fichar_por_equipo
 from funciones import equipo_aleatorio
 lista_equipos = []
 jugador_fichado = []
+estadisticas = {
+    "Fuerza": 0,
+    "Aceleracion": 0,
+    "Resistencia": 0,
+    "Equilibrio": 0,
+    "Velocidad": 0,
+    "Salto": 0,
+}
 
 print('Hola bienvenido/a Futbol Manager!')
 print('Elige que quieres ser:')
@@ -56,10 +64,10 @@ while True:
             eleccion = int(input('>>> '))
 
             if eleccion == 1:
-                ver_estadisticas()
+                ver_estadisticas(estadisticas)
 
             elif eleccion == 2:
-                entrenar()
+                entrenar(estadisticas)
 
             elif eleccion == 3:
                 fichar_por_equipo()
