@@ -111,7 +111,7 @@ def entrenar(estadisticas, estadistica="All"):
 def fichar_por_equipo():
     equipos = {"Boca": 0, "Riber": 1, "Chacarita": 2, "Talleres": 3, "Belgrano": 4}
     for key, numeros in equipos.items():
-        print("Nombre: {}".format(key))
+        print("Nombre: {} ".format(key))
     equipo = []
     while len(equipo) < 1:
         equipo_f = input('Nombre del equipo a cambiar: ')

@@ -1,11 +1,4 @@
-from funciones import crear_equipo
-from funciones import comprar_vender_jugador
-from funciones import formacion_equipo
-from funciones import jugar_partido
-from funciones import ver_estadisticas
-from funciones import entrenar
-from funciones import fichar_por_equipo
-from funciones import equipo_aleatorio
+from funciones import *
 lista_equipos = []
 jugador_fichado = []
 estadisticas = {
