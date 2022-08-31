@@ -63,7 +63,7 @@ def formacion_equipo():
     equipo = []
 
     for key, numero in formaciones.items():
-        print("Nombre de la formacion: {}, numero: {}".format(key, numero))
+        print("Nombre de la formacion: {}".format(key))
 
     while len(equipo) < 1:
         formacion = input('Nombre de la formacion: ')
@@ -111,7 +111,7 @@ def entrenar(estadisticas, estadistica="All"):
 def fichar_por_equipo():
     equipos = {"Boca": 0, "Riber": 1, "Chacarita": 2, "Talleres": 3, "Belgrano": 4}
     for key, numeros in equipos.items():
-        print("Nombre: {} numero: {} ".format(key, numeros))
+        print("Nombre: {}".format(key))
     equipo = []
     while len(equipo) < 1:
         equipo_f = input('Nombre del equipo a cambiar: ')
